@@ -1,0 +1,39 @@
+.table{
+    width: fit-content;
+    background-image: linear-gradient(red,yellow);
+    border-radius: 5px;
+    padding: 15px
+}
+.table table tbody tr{
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    padding: 10px;
+   
+    
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 39px;
+    margin: 20px;
+    background-image: linear-gradient(#242444,#14142b);
+    border-radius: 5px;
+}
+label{
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+input{
+    background-color: transparent;
+    border:solid 1px #6d6d6f;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.content-main{
+    display: flex;
+}

@@ -1,0 +1,25 @@
+<div class="content-main">
+    <div class="table">
+        <table>
+            <tbody>
+                <tr><th>Clouds</th> <th>{{data.clouds.all }}%</th></tr>
+                <tr><th>Humidity</th> <th>{{data.main.humidity}}%</th></tr>
+                <tr><th>Pressure</th> <th>{{data.main.pressure}}hPa</th></tr>
+                <tr> <th>Temperature</th> <th>{{data.main.temp}}k</th></tr>
+                <tr><th>Wind Speed</th> <th>{{data.wind.speed}}m/s</th></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="input">
+        <label for="longitude">
+            <span>Longitude</span>
+            <input type="number" [(ngModel)]="longitude">
+        </label>
+        <label for="latitude">
+            <span>Latitude</span>
+            <input type="number" [(ngModel)]="latitude" >
+        </label>
+        <button (click)="onClick()">Get Weather</button>
+    </div>
+</div>

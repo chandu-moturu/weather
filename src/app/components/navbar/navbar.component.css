@@ -1,0 +1,21 @@
+*{
+    margin: 0px 30px;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+}
+h4{
+    vertical-align: bottom;
+}
+select{
+    color: seashell;
+    border: none;
+    background-color: transparent;
+}
+select:hover{
+    border: none;
+    color: #1d8cf8;
+}

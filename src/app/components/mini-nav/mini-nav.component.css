@@ -1,0 +1,15 @@
+.mini-nav{
+    display: flex;
+    margin-left: 750px;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+a{
+    color: white;
+    text-decoration: none;
+    font-size: small;
+}
+a:hover{
+    color: #e14eca;
+}
