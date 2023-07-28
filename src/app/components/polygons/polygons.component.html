@@ -1,0 +1,23 @@
+<app-add-poly (onAddPoly)="addPoly($event)"></app-add-poly>
+
+<div class="polygon-list">
+    <div class="top-list">
+        <input class="search" type="text" placeholder=' Search {{polys.length}} polygons... ' [(ngModel)]="searchText">
+        
+        <a routerLink="/add-polygon"  class="btn">Create Polygon</a>
+    </div>
+    <div class="head-table">
+        <h4>polygon</h4>
+        <h4>name</h4>
+        <h4>created</h4>
+        <h4>area</h4>
+        <h4>delete</h4>
+    </div>
+    <app-poly-item
+    *ngFor="let poly of polys | search: searchText"
+    [poly]="poly"
+    (onDeletePoly)="deletePoly(poly)"
+    >
+    
+    </app-poly-item>
+</div>

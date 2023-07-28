@@ -1,14 +1,14 @@
 <app-navbar></app-navbar>
-
 <div class="main">
-    <app-sidenav></app-sidenav>
-    <div>
-        <app-mini-nav></app-mini-nav>
-        <app-content></app-content>
-
+  <app-sidenav></app-sidenav>
+  <div class="main-content">
+    <app-mini-nav></app-mini-nav>
+    <div class="main-content-flex">
+      <app-map></app-map>
+      <router-outlet></router-outlet>
     </div>
+    
+  </div>
 </div>
-
-<!-- <app-button></app-button> -->
-
 <app-footer></app-footer>
+

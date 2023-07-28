@@ -1,0 +1,36 @@
+.head-table{
+    
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px rgb(87, 86, 86);
+}
+.btn{
+    background-color: #e14eca;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+    height: 37px;
+    border-radius: 10px;
+}   
+
+.polygon-list{
+    margin-top: 40px;
+    border-radius: 8px;
+    background-image: linear-gradient(#242444,#14142b);
+    padding: 20px;
+}
+
+.top-list{
+    display: flex;
+    justify-content: space-between;
+}
+.search{
+    background-color: transparent;
+    border: solid 1px rgb(77, 72, 72);
+    padding: 5px;
+    border-radius: 8px;
+    color:white;
+}

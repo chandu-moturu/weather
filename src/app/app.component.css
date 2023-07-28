@@ -1,5 +1,10 @@
+
 .main{
+    background-color: #1e1e2f;;
     display: flex;
-    height: 100vh;
+    height: 100%;
     gap: 40px;
 }
+/* .main-content-flex{
+   display: flex;
+} */

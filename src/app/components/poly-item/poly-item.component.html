@@ -1,0 +1,8 @@
+<div class="poly-content">
+    <p>{{poly.polygon}}</p>
+    <p>{{poly.name}}</p>
+    <p>{{poly.created}}</p>
+    <p>{{poly.area}}ha</p>
+    <fa-icon (click)="onDelete(poly)" [ngStyle]="{color:'red'}" [icon]="faTimes"></fa-icon>
+</div>
+
