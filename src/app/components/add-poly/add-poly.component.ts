@@ -1,7 +1,8 @@
-import { Component,OnInit,Output,EventEmitter } from '@angular/core';
+import { Component,OnInit,Output,EventEmitter,ViewChild } from '@angular/core';
 import { Poly } from 'src/app/interfaces/polygon';
 import { PolyList } from 'src/app/interfaces/polylist';
 import { DatePipe } from '@angular/common';
+import { PolygonService } from 'src/app/services/polygon.service';
 
 
 
@@ -16,19 +17,21 @@ export class AddPolyComponent implements OnInit{
 
 
   polygons: PolyList[] = [];
+  polys:Poly[]=[];
   name:string='';
   created:string='';
   myDate:Date=new Date();
   area:number=0;
+  
+
+  @ViewChild('Name') inputName:any;
 
 
-
-
-  constructor(private datePipe: DatePipe){
+  constructor(private datePipe: DatePipe,private polyService:PolygonService){
     this.myDate = new Date()
     }
   ngOnInit(): void {
-    
+    this.polyService.getPolys().subscribe((polys)=>(this.polys=polys));
   }
 
   onSubmit(){
@@ -49,6 +52,7 @@ export class AddPolyComponent implements OnInit{
     }
 
     this.onAddPoly.emit(newPoly);
+    this.addPoly(newPoly)
     
 
     this.name=''
@@ -57,7 +61,12 @@ export class AddPolyComponent implements OnInit{
     this.area=0
   }
   
+  addPoly(poly:Poly){
+    this.polyService.addPoly(poly).subscribe((poly)=>this.polys.push(poly));
+  }
 
-
+  clearInput(){
+    this.inputName.nativeElement.value = ' ';
+  }
 
 }

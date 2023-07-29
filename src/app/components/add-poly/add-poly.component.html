@@ -1,44 +1,54 @@
 <div class="add-polygon">
-<app-map></app-map>
-<div class="main-add-polygon-form">
+  <app-map></app-map>
+  <div class="main-add-polygon-form">
     <div class="header-add-polygon">
-        <div class="min-head">
-            <p>New</p>
-            <p routerLink="/">All</p>
-        </div>
-        <h2>Polygon</h2>
+      <div class="min-head">
+        <p>New</p>
+        <p routerLink="/">All</p>
+      </div>
+      <h2>Polygon</h2>
     </div>
     <form class="add-form" (ngSubmit)="onSubmit()">
-        <div class="name-div">
-            <label for="name">*Name:</label>
-            <input type="text" name="name" id="name" [(ngModel)]="name" placeholder="name">
-        </div>
-        <div class="area-div">
-            <label for="area">Area</label>
-        </div>
-        <div class="uno-div">
-            <ul>
-                <li>Minimum area is 1 ha</li>
-                <li>Maximum area is 1000 ha</li>
-                <li>No self-intersections</li>
-            </ul>
-        </div>
-        <div class="o-div">
-            <ol>
-                <li>Click on the polygon tool to activate draw mode.</li>
-                <li>Place the pointer on the map and click the location of the first point to start drawing.</li>
-                <li>Continue clicking at each corner of the shape until you have created the polygon.</li>
-                <li>Click the first point to stop drawing.</li>
-                <li>Double-click any point to edit.</li>
-            </ol>
-        </div>
-        <div class="buttons">
-            <input  type="button" value="Reset" class="btn">
-        <input type="submit" value="Create Polygon" class="btn btn-submit">
-        </div>
-        
+      <div class="name-div">
+        <label for="name">*Name:</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          #Name
+          [(ngModel)]="name"
+          placeholder="name"
+        />
+      </div>
+      <div class="area-div">
+        <label for="area">Area</label>
+      </div>
+      <div class="uno-div">
+        <ul>
+          <li>Minimum area is 1 ha</li>
+          <li>Maximum area is 1000 ha</li>
+          <li>No self-intersections</li>
+        </ul>
+      </div>
+      <div class="o-div">
+        <ol>
+          <li>Click on the polygon tool to activate draw mode.</li>
+          <li>
+            Place the pointer on the map and click the location of the first
+            point to start drawing.
+          </li>
+          <li>
+            Continue clicking at each corner of the shape until you have created
+            the polygon.
+          </li>
+          <li>Click the first point to stop drawing.</li>
+          <li>Double-click any point to edit.</li>
+        </ol>
+      </div>
+      <div class="buttons">
+        <input type="button" (click)="clearInput()" value="Reset" class="btn" />
+        <input type="submit"  value="Create Polygon" class="btn btn-submit" />
+      </div>
     </form>
-    
-</div>
-
+  </div>
 </div>

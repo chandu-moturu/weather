@@ -11,8 +11,8 @@ import * as MapboxDraw from '@mapbox/mapbox-gl-draw';
 export class MapComponent implements OnInit {
   map!: mapboxgl.Map;
   style = 'mapbox://styles/mapbox/satellite-streets-v12';
-  lat = 37.75;
-  lng = 40.41;
+  lng = 20;
+  lat = 77;
 
   ngOnInit(): void {
     (mapboxgl as typeof mapboxgl).accessToken =
@@ -22,7 +22,7 @@ export class MapComponent implements OnInit {
       container: 'map', // container ID
       style: this.style, // style URL
       center: [this.lat, this.lng], // starting position [lng, lat]
-      zoom: 8, // starting zoom
+      zoom: 3, // starting zoom
     });
     this.map.addControl(new mapboxgl.NavigationControl());
     this.map.addControl(this.draw,);
