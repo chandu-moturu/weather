@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Poly } from '../interfaces/polygon';
+
 
 
 const httpOptions={
@@ -15,26 +14,32 @@ const httpOptions={
 })
 export class PolygonService {
 
+  private appId='?appid=2cc5982076e62be50aaa62feeffb60f9'
   private apiUrl = 'http://localhost:5000/polygons'
+  private apiUrl2='http://api.agromonitoring.com/agro/1.0/polygons'
 
-  constructor(private http:HttpClient) { }
-
-  getPolys(): Observable<Poly[]>{
-    return this.http.get<Poly[]>(this.apiUrl)
+  constructor(private http:HttpClient) { 
+    this.getPolys()
   }
 
-  addPoly(poly: Poly): Observable<Poly>{
-    return this.http.post<Poly>(this.apiUrl,poly,httpOptions)
+  getPolys(): any{
+    const url=`${this.apiUrl2}${this.appId}&duplicated=true`
+    return this.http.get<any[]>(url)
   }
 
-  deletePoly(poly:Poly): Observable<Poly>{
-    const url = `${this.apiUrl}/${poly.id}`
-    return this.http.delete<Poly>(url);
+  addPoly(poly: any){
+    const url=`${this.apiUrl2}${this.appId}&duplicated=true`
+    return this.http.post<any>(url,poly,httpOptions)
   }
 
-  updatePoly(poly:Poly): Observable<Poly>{
-    const url = `${this.apiUrl}/${poly.id}`;
-    return this.http.put<Poly>(url,poly,httpOptions);
+  deletePoly(poly:any){
+    const url = `${this.apiUrl2}/${poly.id}${this.appId}&duplicated=true`
+    return this.http.delete<any>(url);
+  }
+
+  updatePoly(poly:any){
+    const url = `${this.apiUrl2}/${poly.id}${this.appId}&duplicated=true`;
+    return this.http.put(url,poly,httpOptions);
   }
 }
 

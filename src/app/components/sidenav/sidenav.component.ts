@@ -8,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent {
+  hover:boolean=false;
+
+  onMouseEnter(){
+     this.hover=true
+  }
+  onMouseLeave(){
+    this.hover=false
+  }
+  
 
 }

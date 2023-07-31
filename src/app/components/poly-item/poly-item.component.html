@@ -1,8 +1,12 @@
-<div class="poly-content">
+<div class="poly-content" >
     <p>{{poly.polygon}}</p>
-    <p>{{poly.name}}</p>
-    <p>{{poly.created}}</p>
+    <p routerLink="/temp-graph" style="cursor: pointer;">{{poly.name}}</p>
+    <p>{{created}}</p>
     <p>{{poly.area}}ha</p>
-    <fa-icon (click)="onDelete(poly)" [ngStyle]="{color:'red'}" [icon]="faTimes"></fa-icon>
+    <div class="table-icons">
+        <fa-icon [icon]="faTimes"></fa-icon>
+        <fa-icon (click)="onDelete(poly)" [ngStyle]="{color:'red'}" [icon]="faTimes"></fa-icon>
+
+    </div>
 </div>
 

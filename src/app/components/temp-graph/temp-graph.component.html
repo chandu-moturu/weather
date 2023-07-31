@@ -1,0 +1,19 @@
+<div class="graph-comp">
+    <app-map></app-map>
+    <div class="graph-container">
+        <div class="graph">
+            <canvas baseChart
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    
+                    [options]="lineChartOptions"
+                    [type]="lineChartType"
+                    [legend]="lineChartLegend"
+                    
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        
+    </div>
+    
+</div>

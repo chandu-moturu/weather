@@ -1,6 +1,40 @@
 <!-- <app-add-poly (onAddPoly)="addPoly($event)"></app-add-poly> -->
+<div class="map-content">
+    <app-map></app-map>
+    <div class="info-content">
+        <div class="info-title">
+            <p>Polygon</p>
+            <h2>Information</h2>
+        </div>
+         <div class="info-details">
+            <h5>Hover over a polygon for more information</h5>
+            <h5>Click on a polygon to see its detailed satellite and weather data</h5>
+         </div>
+    </div>
+    <div class="info-content">
+        <div class="info-title2">
+            <div class="info-icon"><img src="../../../assets/star.svg" alt="" style="width: 24px; "></div>
+            <div class="info-title-3">
+                <p>Statistics</p>
+                <h2>Total</h2>
+            </div>
+           
+        </div>
+        <div class="info-details">
+            <div class="info-details-inner">
+                <p>Polygons</p>
+                <h1>{{polys.length}}</h1>
+            </div>
+            <div class="info-details-inner">
+                <p>Area</p>
+                <h1>0ha</h1>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="polygon-list">
+    
     <div class="top-list">
         <input class="search" type="text" placeholder=' Search {{polys.length}} polygons... ' [(ngModel)]="searchText">
         
@@ -11,7 +45,8 @@
         <h4>name</h4>
         <h4>created</h4>
         <h4>area</h4>
-        <h4>delete</h4>
+        <h4>options</h4>
+        
     </div>
     <app-poly-item
     *ngFor="let poly of polys | search: searchText"

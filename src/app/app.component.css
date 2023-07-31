@@ -5,6 +5,12 @@
     height: 100%;
     gap: 40px;
 }
-/* .main-content-flex{
-   display: flex;
-} */
+.mini-nav
+{
+    display:flex;
+    justify-content: flex-end;
+}
+.main-content{
+    width: 100%;
+    margin-right: 50px;
+}

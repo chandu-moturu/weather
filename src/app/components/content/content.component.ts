@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import { ApiService } from 'src/app/services/api.service';
 import { HttpClient } from '@angular/common/http';
 import { Loc } from '../../interfaces/Loc';
 
@@ -19,10 +19,10 @@ export class ContentComponent implements OnInit{
 
   onClick() {
     this.getData();
-
+    this.getDataFromExternalObject();
   }
 
-  constructor(private http: HttpClient) {
+  constructor(private api:ApiService) {
     
   }
   ngOnInit() {
@@ -37,10 +37,8 @@ export class ContentComponent implements OnInit{
         this.name[i] = Loc[i].name;
         const lat = Loc[i].coordinates.lat;
         const long = Loc[i].coordinates.long;
-
-        this.apiUrl1 = `https://api.agromonitoring.com/agro/1.0/weather?lat=${lat}&lon=${long}&appid=f8a1111da4b287d29fee5730bfe16ff9`;
-
-        this.http.get(this.apiUrl1).subscribe((data) => {
+        
+        this.api.getCurrentData(lat,long).subscribe((data) => {
           this.responses[i] = data;
           console.log(data,this.name[i]);
         });
@@ -51,11 +49,14 @@ export class ContentComponent implements OnInit{
   getData() {
     let lat = this.lat;
     let long = this.long;
-    this.apiUrl = `https://api.agromonitoring.com/agro/1.0/weather?lat=${lat}&lon=${long}&appid=f8a1111da4b287d29fee5730bfe16ff9`;
-
     try {
-      this.http.get(this.apiUrl).subscribe((data) => {
+      this.api.getForecastData(lat,long).subscribe((data) => {
         this.data = data;
+        console.log('forecast',data)
+      });
+      this.api.getCurrentData(lat,long).subscribe((data) => {
+        this.data = data;
+        console.log('current',data)
       });
     } catch (error) {
       console.log('Error in getData()', error);

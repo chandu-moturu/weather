@@ -1,6 +1,7 @@
 .head-table{
     
     display: flex;
+    padding:0px 28px ;
     justify-content: space-between;
     border-bottom: solid 1px rgb(87, 86, 86);
 }
@@ -19,7 +20,8 @@
 .polygon-list{
     margin-top: 40px;
     border-radius: 8px;
-    background-image: linear-gradient(#242444,#14142b);
+    background-color: #27293d;
+    /* background-image: linear-gradient(#242444,#14142b); */
     padding: 20px;
 }
 
@@ -33,4 +35,67 @@
     padding: 5px;
     border-radius: 8px;
     color:white;
+}
+
+.map-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-content{
+    width: 250px;
+    background-color: #27293d;
+    height: fit-content;
+    padding: 17px;
+    border-radius: 8px;
+}
+.info-title{
+    display: flex;
+    line-height: 0px;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 17px;
+    text-align: end;
+    border-bottom: solid 1px gray;
+}
+.info-title-3{
+    display: flex;
+    line-height: 0px;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: end;
+}
+.info-title p{
+    color: gray;
+}
+.info-title-3 p{
+    color: gray;
+}
+.info-details{
+    line-height: 20px;
+    font-size: medium;
+    color: rgb(199, 191, 191);
+}
+.info-details p{
+    font-size: small;
+    color: gray;
+}
+.info-details-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.info-title2{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 17px;
+    border-bottom: solid 1px gray;
+}
+.info-icon{
+    display: flex;
+    padding: 14px ;
+    height: 24px;
+    background-image: linear-gradient(#e14eca,#a308e5);
+    align-items: center;
+    border-radius: 50%;
 }

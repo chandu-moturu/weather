@@ -1,28 +1,30 @@
 
 <div class="content-main">
- 
+  
+  
+  <app-map></app-map>
   <div class="table">
     <table>
       <tbody>
         <tr>
           <th>Clouds</th>
-          <th>{{ data?.clouds.all }}%</th>
+          <th>{{ data?.clouds?.all }}%</th>
         </tr>
         <tr>
           <th>Humidity</th>
-          <th>{{ data?.main.humidity }}%</th>
+          <th>{{ data?.main?.humidity }}%</th>
         </tr>
         <tr>
           <th>Pressure</th>
-          <th>{{ data?.main.pressure }}hPa</th>
+          <th>{{ data?.main?.pressure }}hPa</th>
         </tr>
         <tr>
           <th>Temperature</th>
-          <th>{{ data?.main.temp }}k</th>
+          <th>{{ data?.main?.temp }}k</th>
         </tr>
         <tr>
           <th>Wind Speed</th>
-          <th>{{ data?.wind.speed }}m/s</th>
+          <th>{{ data?.wind?.speed }}m/s</th>
         </tr>
       </tbody>
     </table>
@@ -57,11 +59,11 @@
       <tbody *ngFor="let data1 of responses; let i = index" class="dbody">
         <tr>
           <th>{{ name[i] }}</th>
-          <th>{{ data1?.clouds.all }}%</th>
-          <th>{{ data1?.main.humidity }}%</th>
-          <th>{{ data1?.main.pressure }}hPa</th>
-          <th>{{ data1?.main.temp }}k</th>
-          <th>{{ data1?.wind.speed }}m/s</th>
+          <th>{{ data1?.clouds?.all }}%</th>
+          <th>{{ data1?.main?.humidity }}%</th>
+          <th>{{ data1?.main?.pressure }}hPa</th>
+          <th>{{ data1?.main?.temp }}k</th>
+          <th>{{ data1?.wind?.speed }}m/s</th>
         </tr>
        
       </tbody>

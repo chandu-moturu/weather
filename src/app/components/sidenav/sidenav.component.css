@@ -3,24 +3,28 @@ li{
     padding: 5px;
     margin-bottom: 30px;
     font-size: x-small;
+    cursor: pointer;
+    transition: .3s;
 }
-
+li:hover{
+    padding-left: 0px;
+}
 .sidenav{
-  
     background-image: linear-gradient(#1d8cf8, #032547);
     height: 70vh;
-    /* position: fixed; */
     border-radius: 5px;
     padding: 30px 10px; 
-   
+    width: 50px;
     display: block;
     top: 0;
-   
     z-index: 1032;
     visibility: visible;
     overflow-y: visible;
-  
-    transition: .5s cubic-bezier(.685,.0473,.346,1);
+    touch-action: auto;
+    transition: .2s cubic-bezier(.685,.0473,.346,1);
+}
+.sidenav:hover{
+    width: 200px;
 }
 .sidenav .logo{
     display: flex;

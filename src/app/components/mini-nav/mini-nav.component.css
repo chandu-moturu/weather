@@ -1,6 +1,5 @@
 .mini-nav{
     display: flex;
-    margin-left: 750px;
     justify-content: flex-end;
     gap: 20px;
     margin-bottom: 20px;

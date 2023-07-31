@@ -1,12 +1,12 @@
 
-<div class="sidenav" >
-    <div class="logo"><img src="https://home.agromonitoring.com/static/media/agro-logo.539da753.png" alt=""><a href="/">AGRO MONITORING</a></div>
+<div class="sidenav" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" >
+    <div class="logo"><img src="https://home.agromonitoring.com/static/media/agro-logo.539da753.png" alt=""><a href="/">{{this.hover?'AGRO MONITORING':''}}</a></div>
     <ul>
-        <li>POLYGONS</li>
-        <li>SATILITE DATA & STATISTICS</li>
-        <li>WEATHTER DATA</li>
-        <li>NEW POLYGON</li>
-        <li>CROP MAP</li>
-        <li>MY ACCOUNT</li>
+        <li routerLink="/">{{ this.hover ? 'POLYGONS' :'P'}}</li>
+        <li routerLink="/temp-graph">{{this.hover ? 'SATILITE DATA & STATISTICS' : 'S'}}</li>
+        <li routerLink="/private">{{this.hover ? 'WEATHTER DATA':'W'}}</li>
+        <li routerLink="/add-polygon">{{this.hover ? 'NEW POLYGON':'N'}}</li>
+        <li>{{this.hover ? 'CROP MAP' : 'C'}}</li>
+        <li>{{this.hover ?'MY ACCOUNT' :'M'}}</li>
     </ul>
 </div>

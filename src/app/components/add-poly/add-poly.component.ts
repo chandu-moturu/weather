@@ -1,7 +1,6 @@
 import { Component,OnInit,Output,EventEmitter,ViewChild } from '@angular/core';
-import { Poly } from 'src/app/interfaces/polygon';
-import { PolyList } from 'src/app/interfaces/polylist';
-import { DatePipe } from '@angular/common';
+
+
 import { PolygonService } from 'src/app/services/polygon.service';
 
 
@@ -13,25 +12,25 @@ import { PolygonService } from 'src/app/services/polygon.service';
 })
 export class AddPolyComponent implements OnInit{
 
-  @Output() onAddPoly: EventEmitter<Poly> = new EventEmitter()
+  @Output() onAddPoly: EventEmitter<any> = new EventEmitter()
 
-
-  polygons: PolyList[] = [];
-  polys:Poly[]=[];
+  
+  coordinates:any=[]
+  coordinatesList:any=[]
+  
+  polys:any[]=[];
   name:string='';
-  created:string='';
-  myDate:Date=new Date();
   area:number=0;
   
 
   @ViewChild('Name') inputName:any;
 
 
-  constructor(private datePipe: DatePipe,private polyService:PolygonService){
-    this.myDate = new Date()
+  constructor(private polyService:PolygonService){
+   
     }
   ngOnInit(): void {
-    this.polyService.getPolys().subscribe((polys)=>(this.polys=polys));
+    this.polyService.getPolys().subscribe((polys:any)=>(this.polys=polys));
   }
 
   onSubmit(){
@@ -39,34 +38,64 @@ export class AddPolyComponent implements OnInit{
       alert("please add name")
       return;
     }
-
-    console.log('clicked')
-    let formDate = this.datePipe.transform(this.myDate, 'dd MMM yyyy')??'';
-    console.log(formDate)
-    console.log(typeof formDate)
-    const newPoly = {
-      polygon : this.polygons,
-      name : this.name,
-      created: formDate,
-      area : this.area
+    if(this.coordinates.length<1){
+      alert("please draw polygon")
+      return
     }
+
+   
+  
+    const newPoly = {
+      name:this.name,
+      geo_json:{
+         type:'Feature',
+         properties:{
+   
+         },
+         geometry:{
+            type:'Polygon',
+            coordinates:[
+              [
+                 [-121.1958,37.6683],
+                 [-121.1779,37.6687],
+                 [-121.1773,37.6792],
+                 [-121.1958,37.6792],
+                 [-121.1958,37.6683]
+              ]
+           ]
+         }
+      }
+   }
+   try{
 
     this.onAddPoly.emit(newPoly);
     this.addPoly(newPoly)
+    console.log('added')
+   }
+   catch{
+    console.log('error')
+   }
+   
     
 
     this.name=''
-    this.polygons=[]
-    this.created= '';
     this.area=0
   }
   
-  addPoly(poly:Poly){
+  addPoly(poly:any){
     this.polyService.addPoly(poly).subscribe((poly)=>this.polys.push(poly));
   }
 
   clearInput(){
     this.inputName.nativeElement.value = ' ';
+  }
+
+  draw(event:any){
+    this.coordinates=event
+    console.log("parent",this.coordinates)
+    console.log("parent coordinates",this.coordinates.features[0].geometry.coordinates[0])
+    this.coordinatesList =this.coordinates.features[0].geometry.coordinates[0]
+ 
   }
 
 }
