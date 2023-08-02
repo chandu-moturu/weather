@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms'
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
 import { NgChartsModule } from 'ng2-charts';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,6 +47,7 @@ import { TempGraphComponent } from './components/temp-graph/temp-graph.component
     HttpClientModule,
     NgChartsModule,
     FormsModule,
+    ReactiveFormsModule,
     
   ],
   providers: [DatePipe],

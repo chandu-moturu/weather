@@ -16,3 +16,13 @@
     align-items: center;
     gap: 20px;
 }
+.pencil-input{
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    color: white;
+    border-color: blueviolet;
+    justify-content: center;
+}

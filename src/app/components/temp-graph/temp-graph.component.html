@@ -1,19 +1,20 @@
 <div class="graph-comp">
     <app-map></app-map>
     <div class="graph-container">
-        <div class="graph">
-            <canvas baseChart
-                    [datasets]="lineChartData"
-                    [labels]="lineChartLabels"
-                    
-                    [options]="lineChartOptions"
-                    [type]="lineChartType"
-                    [legend]="lineChartLegend"
-                    
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"></canvas>
-          </div>
-        
+        <div class="graph-header">
+             <p>Daily</p>
+             <div class="graph-header-options">
+                <h5>Hourly Forecast</h5>
+                <h5>Daily Forecast</h5>
+                <h5>Historical Weather</h5>
+                <h5>Historical Soil</h5>
+                <h5>Accumulated</h5>
+             </div>
+        </div>
+        <div class="title">
+            <h3>Forecast</h3>
+        </div>
+        <canvas #graph class="graph"></canvas>
     </div>
     
 </div>

@@ -1,12 +1,21 @@
-<div class="poly-content" >
-    <p>{{poly.polygon}}</p>
-    <p routerLink="/temp-graph" style="cursor: pointer;">{{poly.name}}</p>
-    <p>{{created}}</p>
-    <p>{{poly.area}}ha</p>
-    <div class="table-icons">
-        <fa-icon [icon]="faTimes"></fa-icon>
-        <fa-icon (click)="onDelete(poly)" [ngStyle]="{color:'red'}" [icon]="faTimes"></fa-icon>
-
-    </div>
+<div class="poly-content">
+  <p>{{ poly.polygon }}</p>
+  <div *ngIf="pencilClicked">
+      <form [formGroup]="pencilForm" (ngSubmit)="onUpdate(poly)">
+        <input type="text" id="name" formControlName="name" class="pencil-input" />
+      </form>
+  </div>
+  <p routerLink="/temp-graph" style="cursor: pointer" *ngIf="!pencilClicked">
+    {{ poly.name }}
+  </p>
+  <p>{{ created }}</p>
+  <p>{{ poly.area }}ha</p>
+  <div class="table-icons">
+    <fa-icon [icon]="faPencil" (click)="updateName()"></fa-icon>
+    <fa-icon
+      (click)="onDelete(poly)"
+      [ngStyle]="{ color: 'white' }"
+      [icon]="faTimes"
+    ></fa-icon>
+  </div>
 </div>
-

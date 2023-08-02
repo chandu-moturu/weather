@@ -1,7 +1,9 @@
 import { Component , OnInit,Input, Output,EventEmitter} from '@angular/core';
 // import { Poly } from 'src/app/interfaces/polygon';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
 import {faTimes} from '@fortawesome/free-solid-svg-icons'
 import { DatePipe } from '@angular/common';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-poly-item',
@@ -12,12 +14,22 @@ export class PolyItemComponent implements OnInit{
 
   @Input() poly !: any;
   @Output() onDeletePoly:EventEmitter<any> = new EventEmitter();
+  @Output() onUpdatePoly:EventEmitter<any> = new EventEmitter<any>();
   
   created:string=''
-
+  faPencil=faPencil
   faTimes = faTimes
-  constructor(private datePipe: DatePipe) {
+  name=''
+  pencilClicked:boolean=false;
+  pencilForm: FormGroup;
+ 
   
+  constructor(private datePipe: DatePipe,private formBuilder: FormBuilder) {
+
+      this.pencilForm = this.formBuilder.group({
+        name: ['', Validators.required],
+      });
+ 
   }
 
   formatDate() {
@@ -27,11 +39,29 @@ export class PolyItemComponent implements OnInit{
 
   ngOnInit(): void {
     this.formatDate(); 
+    this.pencilForm = new FormGroup({
+      name: new FormControl(''), 
+    });
   }
 
 
   onDelete(poly:any){
     this.onDeletePoly.emit(poly);
+  }
+
+
+
+  updateName() {
+    this.pencilClicked=true
+  }
+
+  onUpdate(poly: any) {
+    const nameControl = this.pencilForm.get('name');
+    if (nameControl?.valid) {
+      poly.name = nameControl.value;
+      this.pencilClicked = false;
+      this.onUpdatePoly.emit(poly);
+    }
   }
 
 }

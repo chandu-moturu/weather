@@ -13,7 +13,7 @@
     </div>
     <div class="info-content">
         <div class="info-title2">
-            <div class="info-icon"><img src="../../../assets/star.svg" alt="" style="width: 24px; "></div>
+            <div class="info-icon"><fa-icon [icon]="star" ></fa-icon></div>
             <div class="info-title-3">
                 <p>Statistics</p>
                 <h2>Total</h2>
@@ -52,6 +52,7 @@
     *ngFor="let poly of polys | search: searchText"
     [poly]="poly"
     (onDeletePoly)="deletePoly(poly)"
+    (onUpdatePoly)="updatePoly(poly)"
     >
     
     </app-poly-item>
