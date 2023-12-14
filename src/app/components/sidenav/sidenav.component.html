@@ -1,12 +1,49 @@
+<div
+  class="sidenav"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+>
+  <div class="logo">
+    <img
+      src="https://home.agromonitoring.com/static/media/agro-logo.539da753.png"
+      alt=""
+    /><a href="/">{{ this.hover ? "AGRO MONITORING" : "" }}</a>
+  </div>
+  <div class="items-container">
+    <div class="items" routerLink="/">
+      <img [src]="'../../../assets/images/menu.png'" alt="" width="24" class="img"/>
+      <p>{{ this.hover ? "POLYGONS" : "" }}</p>
 
-<div class="sidenav" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" >
-    <div class="logo"><img src="https://home.agromonitoring.com/static/media/agro-logo.539da753.png" alt=""><a href="/">{{this.hover?'AGRO MONITORING':''}}</a></div>
-    <ul>
-        <li routerLink="/">{{ this.hover ? 'POLYGONS' :'P'}}</li>
-        <li routerLink="/temp-graph">{{this.hover ? 'SATILITE DATA & STATISTICS' : 'S'}}</li>
-        <li routerLink="/private">{{this.hover ? 'WEATHTER DATA':'W'}}</li>
-        <li routerLink="/add-polygon">{{this.hover ? 'NEW POLYGON':'N'}}</li>
-        <li>{{this.hover ? 'CROP MAP' : 'C'}}</li>
-        <li>{{this.hover ?'MY ACCOUNT' :'M'}}</li>
-    </ul>
+    </div>
+    <div class="items" routerLink="/temp-graph">
+      <img [src]="'../../../assets/images/satelite.png'" alt="" width="24" class="img"/>
+      <p> {{
+        this.hover ? "SATILITE DATA & STATISTICS" : ""
+      }}</p>
+
+    </div>
+    <div class="items" routerLink="/private">
+      <img [src]="'../../../assets/images/thermometer.png'" alt="" width="24" class="img"/>
+      <p>
+      {{ this.hover ? "WEATHTER DATA" : "" }}
+
+      </p>
+    </div>
+    <div class="items" routerLink="/add-polygon">
+      <img [src]="'../../../assets/images/plus-symbol-button.png'" alt="" width="24" class="img"/>
+      <p>
+      {{ this.hover ? "NEW POLYGON" : "" }}
+
+      </p>
+    </div>
+
+    <div class="items" ><img [src]="'../../../assets/images/user (1).png'" alt="" width="24" class="img"/>
+      <p>
+      {{ this.hover ? "MY ACCOUNT" : "" }}
+      </p>
+    </div>
+
+
+
+  </div>
 </div>

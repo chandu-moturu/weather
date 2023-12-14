@@ -3,6 +3,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 
 
+
 const httpOptions={
   headers: new HttpHeaders({
     'Content-Type':'application/json'
@@ -15,7 +16,6 @@ const httpOptions={
 export class PolygonService {
 
   private appId='?appid=2cc5982076e62be50aaa62feeffb60f9'
-  private apiUrl = 'http://localhost:5000/polygons'
   private apiUrl2='http://api.agromonitoring.com/agro/1.0/polygons'
 
   constructor(private http:HttpClient) { 

@@ -1,5 +1,5 @@
 .head-table{
-    
+
     display: flex;
     padding:0px 28px ;
     justify-content: space-between;
@@ -15,7 +15,7 @@
     padding: 0px 10px;
     height: 37px;
     border-radius: 10px;
-}   
+}
 
 .polygon-list{
     margin-top: 40px;
@@ -40,10 +40,15 @@
 .map-content{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 20px;
 }
 
 .info-content{
-    width: 250px;
+    width: min-content;
+
+    flex-grow: 1;
     background-color: #27293d;
     height: fit-content;
     padding: 17px;
@@ -98,4 +103,11 @@
     background-image: linear-gradient(#e14eca,#a308e5);
     align-items: center;
     border-radius: 50%;
+}
+
+
+@media screen and (max-width:420px) {
+    .info-content{
+        width: 380px;
+    }
 }

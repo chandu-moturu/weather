@@ -9,7 +9,6 @@
 }
 h5{
     text-align: center;
-    
     padding: 8px;
     border-radius: 8px;
     color: black;
@@ -17,13 +16,12 @@ h5{
     transition: .3s ease-in;
 }
 h5:hover{
+    z-index: 1;
     background-color: transparent;
     border: 1px solid white;
     color: white;
 }
 details{
-   
-
     color: seashell;
     border: none;
     background-color: transparent;
@@ -31,4 +29,11 @@ details{
 details:hover{
     border: none;
     color: #1d8cf8;
+    
+}
+
+@media screen and (max-width : 480px) {
+    .nav{
+        width: 480px;
+    }
 }

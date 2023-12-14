@@ -1,7 +1,33 @@
 
 
 #map {
-  width: 600px;
-  height: 400px;
+ width: 100%;
+ height: 100%;
 
 }
+.map-container{
+  width: 600px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+@media screen and (max-width:1430px){
+  .map-container{
+    width: 1000px;
+    height: 700px;
+  }
+}
+@media screen and (max-width:920px){
+  .map-container{
+    width: 800px;
+    height: 500px;
+  }
+}
+@media screen and (max-width:720px){
+  .map-container{
+    width: 400px;
+    height: 300px;
+  }
+}
+

@@ -10,12 +10,13 @@ import { Component } from '@angular/core';
 export class SidenavComponent {
   hover:boolean=false;
 
+
   onMouseEnter(){
      this.hover=true
   }
   onMouseLeave(){
     this.hover=false
   }
-  
+
 
 }
