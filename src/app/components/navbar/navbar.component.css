@@ -7,15 +7,28 @@
     margin-bottom: 40px;
 
 }
-h4{
-    vertical-align: bottom;
+h5{
+    text-align: center;
+    
+    padding: 8px;
+    border-radius: 8px;
+    color: black;
+    background-color: white;
+    transition: .3s ease-in;
 }
-select{
+h5:hover{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+details{
+   
+
     color: seashell;
     border: none;
     background-color: transparent;
 }
-select:hover{
+details:hover{
     border: none;
     color: #1d8cf8;
 }
